@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'angular-16-features-try';
+  count = signal<number>(0);
+
+  increaseCount(): void {
+    this.count.update((countValue: number) => countValue + 1);
+  }
+
+  decreaseCount(): void {
+    this.count.update((countValue: number) => countValue - 1);
+  }
 }
