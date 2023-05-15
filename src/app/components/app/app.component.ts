@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +6,4 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Hi There';
-
-  constructor(private snackBar: MatSnackBar) {
-  }
-
-  buttonClickHandler(): void {
-    this.snackBar.open('Angular Material works');
-  }
 }
