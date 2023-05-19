@@ -9,3 +9,4 @@ The to do list for this Repository.
 - [ ] Find Free API to get data.
 - [ ] Make simple CI/CD for Merge Requests.
 - [ ] Cover all code by tests.
+- [ ] Deploy it on some host.
