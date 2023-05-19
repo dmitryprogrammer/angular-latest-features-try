@@ -1,5 +1,34 @@
 <div class='container'>
-  <h1>{{title}}</h1>
+  <table [dataSource]='dataSource' mat-table>
+    <!-- Position Column -->
+    <ng-container matColumnDef='position'>
+      <th *matHeaderCellDef mat-header-cell>No.</th>
+      <td *matCellDef='let element' mat-cell>{{ element.position }}</td>
+    </ng-container>
 
-  <button (click)='buttonClickHandler()' class='mt-40' color='primary' mat-raised-button>Click Me</button>
+    <!-- Name Column -->
+    <ng-container matColumnDef='name'>
+      <th *matHeaderCellDef mat-header-cell>Name</th>
+      <td *matCellDef='let element' mat-cell>{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef='weight'>
+      <th *matHeaderCellDef mat-header-cell>Weight</th>
+      <td *matCellDef='let element' mat-cell>{{ element.weight }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef='symbol'>
+      <th *matHeaderCellDef mat-header-cell>Symbol</th>
+      <td *matCellDef='let element' mat-cell>{{ element.symbol }}</td>
+    </ng-container>
+
+    <tr *matHeaderRowDef='displayedColumns' mat-header-row></tr>
+    <tr *matRowDef='let row; columns: displayedColumns' mat-row></tr>
+  </table>
 </div>
+
+<!-- Copyright 2023 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
