@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject, Observable} from 'rxjs';
 
 import {SharedModule} from '../../../shared/shared.module';
+import {CountiesApiService} from '../../services/counties-api.service';
 
 export interface PeriodicElement {
   name: string;
@@ -38,7 +39,14 @@ export interface Element {
   standalone: true,
   imports: [SharedModule]
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
+  constructor(private countriesApiService: CountiesApiService) {
+  }
+
+  public ngOnInit(): void {
+    this.countriesApiService.getCountries().subscribe(console.log);
+  }
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new ExampleDataSource();
 }
