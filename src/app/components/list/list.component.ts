@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DestroyRef, inject, OnInit} from '@angular/core';
 import {DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject, Observable} from 'rxjs';
 
 import {SharedModule} from '../../../shared/shared.module';
 import {CountiesApiService} from '../../services/counties-api.service';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 export interface PeriodicElement {
   name: string;
@@ -40,11 +41,13 @@ export interface Element {
   imports: [SharedModule]
 })
 export class ListComponent implements OnInit {
+  private destroyRef = inject(DestroyRef);
+
   constructor(private countriesApiService: CountiesApiService) {
   }
 
   public ngOnInit(): void {
-    this.countriesApiService.getCountries().subscribe(console.log);
+    this.countriesApiService.getCountries().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(console.log);
   }
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
