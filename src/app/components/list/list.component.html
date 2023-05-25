@@ -1,27 +1,27 @@
 <div class='container'>
   <table [dataSource]='dataSource' mat-table>
     <!-- Position Column -->
-    <ng-container matColumnDef='position'>
-      <th *matHeaderCellDef mat-header-cell>No.</th>
-      <td *matCellDef='let element' mat-cell>{{ element.position }}</td>
+    <ng-container matColumnDef='country'>
+      <th *matHeaderCellDef mat-header-cell>Country</th>
+      <td *matCellDef='let element' mat-cell>{{ element.country }}</td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef='name'>
-      <th *matHeaderCellDef mat-header-cell>Name</th>
-      <td *matCellDef='let element' mat-cell>{{ element.name }}</td>
+    <ng-container matColumnDef='iso2'>
+      <th *matHeaderCellDef mat-header-cell>iso2</th>
+      <td *matCellDef='let element' mat-cell>{{ element.iso2 }}</td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef='weight'>
-      <th *matHeaderCellDef mat-header-cell>Weight</th>
-      <td *matCellDef='let element' mat-cell>{{ element.weight }}</td>
+    <ng-container matColumnDef='iso3'>
+      <th *matHeaderCellDef mat-header-cell>iso3</th>
+      <td *matCellDef='let element' mat-cell>{{ element.iso3 }}</td>
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef='symbol'>
-      <th *matHeaderCellDef mat-header-cell>Symbol</th>
-      <td *matCellDef='let element' mat-cell>{{ element.symbol }}</td>
+    <ng-container matColumnDef='cities'>
+      <th *matHeaderCellDef mat-header-cell>cities</th>
+      <td *matCellDef='let element' mat-cell>{{ element.cities }}</td>
     </ng-container>
 
     <tr *matHeaderRowDef='displayedColumns' mat-header-row></tr>
