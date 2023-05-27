@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+import {CdkTableModule} from '@angular/cdk/table';
 
-const MATERIAL_MODULES = [MatButtonModule, MatSnackBarModule];
+const MATERIAL_MODULES = [MatSortModule, CdkTableModule, MatTableModule];
 
 @NgModule({
   imports: [...MATERIAL_MODULES],
