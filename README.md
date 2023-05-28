@@ -1,7 +1,7 @@
 # Angular16FeaturesTry
 
-Hi, in this repository you can see how I'm trying the latest Angular Features of 16 Version, like Signals, Stand-alone
-Components and Lazy Stand-alon Routes, and more.
+Hi, in this repository you can see how I'm trying the features of latest (16) Angular  Version, like Signals, Stand-alone
+Components, Lazy Stand-alon Routes, and more.
 
 The to do list for this Repository.
 
