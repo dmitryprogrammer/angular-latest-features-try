@@ -1,26 +1,26 @@
 <div class='container'>
-  <table [dataSource]='countries()' mat-table>
+  <table (matSortChange)='announceSortChange($event)' [dataSource]='countries()' mat-table matSort>
     <!-- Position Column -->
     <ng-container matColumnDef='country'>
-      <th *matHeaderCellDef mat-header-cell>Country</th>
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>Country</th>
       <td *matCellDef='let element' mat-cell>{{ element.country }}</td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef='iso2'>
-      <th *matHeaderCellDef mat-header-cell>iso2</th>
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>iso2</th>
       <td *matCellDef='let element' mat-cell>{{ element.iso2 }}</td>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef='iso3'>
-      <th *matHeaderCellDef mat-header-cell>iso3</th>
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>iso3</th>
       <td *matCellDef='let element' mat-cell>{{ element.iso3 }}</td>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef='cities'>
-      <th *matHeaderCellDef mat-header-cell>cities</th>
+      <th *matHeaderCellDef mat-header-cell mat-sort-header>cities</th>
       <td *matCellDef='let element' mat-cell>{{ element.cities }}</td>
     </ng-container>
 
