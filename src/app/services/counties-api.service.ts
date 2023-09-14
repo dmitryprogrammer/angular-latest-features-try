@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map, Observable} from 'rxjs';
+import {filter, map, Observable} from 'rxjs';
 
 import {Countries, ICountry} from '@models/countries.model';
 
@@ -14,6 +14,6 @@ export class CountiesApiService {
   }
 
   public getCountries(): Observable<ICountry[]> {
-    return this.http.get<Countries>(`${this.BASE_URL}countries`).pipe(map((countriesData: Countries): ICountry[] => countriesData.data));
-  }
+    return this.http.get<Countries>(`${this.BASE_URL}countries`).pipe(filter((countriesData: Countries) => Boolean(countriesData)), map((countriesData: Countries): ICountry[] => countriesData.data));
+ }
 }
