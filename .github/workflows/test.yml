@@ -1,16 +1,21 @@
 name: Test
-run-name: Run test by ${{ github.actor }} user.
-on: [push]
+run-name: Test by ${{ github.actor }} user.
+on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 18
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        run: npm i --legacy-peer-deps
+        run: npm ci
       - name: Test
         run: npm run test
