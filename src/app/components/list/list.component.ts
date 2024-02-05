@@ -1,15 +1,11 @@
-import {Component, DestroyRef, inject, Signal, ViewChild} from '@angular/core';
-import {MatTable} from '@angular/material/table';
-import {MatSort, Sort} from '@angular/material/sort';
+import {Component, DestroyRef, inject} from '@angular/core';
 import {map, Observable} from 'rxjs';
 
 import {SharedModule} from '../../../shared/shared.module';
-import {CountiesApiService} from '@services/counties-api.service';
-import {takeUntilDestroyed, toSignal} from '@angular/core/rxjs-interop';
-import {ICountry} from '@models/countries.model';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {CommonModule} from '@angular/common';
-
-export type CountryForList = ICountry<number>;
+import {ApisMainService} from '@services/apis-main.service';
+import {IApisEntry, IApisMain} from '@models/apis.model';
 
 @Component({
   selector: 'app-list',
@@ -20,31 +16,12 @@ export type CountryForList = ICountry<number>;
 })
 export class ListComponent {
   private destroyRef = inject(DestroyRef);
-  @ViewChild(MatTable) table: MatTable<ICountry[]>;
-  @ViewChild(MatSort) sort: MatSort;
 
-  countries: Signal<CountryForList[]>;
-
-  displayedColumns: string[] = ['country', 'iso2', 'iso3', 'cities'];
-
-  private countries$: Observable<CountryForList[]> = this.countriesApiService.getCountries().pipe(
-    map((countries: ICountry[]): CountryForList[] =>
-      countries.map(
-        (country: ICountry): CountryForList => ({
-          ...country,
-          cities: country.cities?.length ?? 0
-        })
-      )
-    ),
+  public countries$: Observable<IApisEntry[]> = this.apisMainService.getApiEntries().pipe(
+    map((apisMainData: IApisMain) => apisMainData?.entries),
     takeUntilDestroyed(this.destroyRef)
   );
 
-  constructor(private countriesApiService: CountiesApiService) {
-    this.countries = toSignal(this.countries$, {initialValue: []});
-  }
-
-  /** Announce the change in sort state for assistive technology. */
-  announceSortChange(sortState: Sort) {
-    console.log(sortState);
+  constructor(private apisMainService: ApisMainService) {
   }
 }
