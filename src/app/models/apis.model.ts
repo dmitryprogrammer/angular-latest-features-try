@@ -7,8 +7,8 @@ export interface IApisEntry {
   API: string;
   Description: string;
   Auth: string;
-  HTTPS: boolean,
-  Cors: 'yes' | 'no',
+  HTTPS: boolean;
+  Cors: 'yes' | 'no';
   Link: string;
   Category: string;
 }

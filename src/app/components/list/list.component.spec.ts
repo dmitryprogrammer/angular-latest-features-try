@@ -11,7 +11,9 @@ describe('ListComponent', () => {
   let fixture: ComponentFixture<ListComponent>;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({imports: [BrowserAnimationsModule, HttpClientTestingModule, CommonModule, SharedModule, ListComponent]}).compileComponents();
+    TestBed.configureTestingModule({
+      imports: [BrowserAnimationsModule, HttpClientTestingModule, CommonModule, SharedModule, ListComponent],
+    }).compileComponents();
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
