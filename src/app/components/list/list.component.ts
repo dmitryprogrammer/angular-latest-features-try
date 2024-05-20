@@ -1,11 +1,11 @@
-import {Component, DestroyRef, inject} from '@angular/core';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
+import {Component, DestroyRef, inject, Signal} from '@angular/core';
+import {takeUntilDestroyed, toSignal} from '@angular/core/rxjs-interop';
 import {CommonModule} from '@angular/common';
 import {map, Observable} from 'rxjs';
 
 import {SharedModule} from '../../../shared/shared.module';
 import {ApisMainService} from '@services/apis-main.service';
-import {IApisEntry, IApisMain} from '@models/apis.model';
+import {IApiCountry, IApisMain} from '@models/apis.model';
 
 @Component({
   selector: 'app-list',
@@ -18,10 +18,13 @@ import {IApisEntry, IApisMain} from '@models/apis.model';
 export class ListComponent {
   private destroyRef = inject(DestroyRef);
 
-  public countries$: Observable<IApisEntry[]> = this.apisMainService.getApiEntries().pipe(
-    map((apisMainData: IApisMain) => apisMainData?.entries),
+  private countries$: Observable<IApiCountry[]> = this.apisMainService.getApiEntries().pipe(
+    map((apisMainData: IApisMain) => apisMainData?.data),
     takeUntilDestroyed(this.destroyRef),
   );
 
-  constructor(private apisMainService: ApisMainService) {}
+  public countries: Signal<IApiCountry[]> = toSignal(this.countries$);
+
+  constructor(private apisMainService: ApisMainService) {
+  }
 }
