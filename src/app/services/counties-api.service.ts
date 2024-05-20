@@ -10,7 +10,8 @@ import {Countries, ICountry} from '@models/countries.model';
 export class CountiesApiService {
   private readonly BASE_URL: string = 'https://countriesnow.space/api/v0.1/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   public getCountries(): Observable<ICountry[]> {
     return this.http.get<Countries>(`${this.BASE_URL}countries`).pipe(

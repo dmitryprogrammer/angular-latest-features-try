@@ -9,4 +9,5 @@ import {HttpClientModule} from '@angular/common/http';
   standalone: true,
   imports: [RouterModule, HttpClientModule],
 })
-export class AppComponent {}
+export class AppComponent {
+}

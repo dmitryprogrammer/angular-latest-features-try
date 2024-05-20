@@ -11,4 +11,5 @@ const MATERIAL_MODULES = [MatSortModule, CdkTableModule, MatTableModule, MatNati
   imports: [HttpClientModule, ...MATERIAL_MODULES],
   exports: [...MATERIAL_MODULES],
 })
-export class SharedModule {}
+export class SharedModule {
+}

@@ -4,7 +4,6 @@ import {CommonModule} from '@angular/common';
 import {Observable} from 'rxjs';
 
 import {SharedModule} from '../../../shared/shared.module';
-import {ApisMainService} from '@services/apis-main.service';
 import {CountiesApiService} from "@services/counties-api.service";
 import {ICountry} from "@models/countries.model";
 
@@ -25,5 +24,6 @@ export class ListComponent {
 
   public countries: Signal<ICountry[]> = toSignal(this.countries$);
 
-  constructor(private countiesApiService: CountiesApiService) {}
+  constructor(private countiesApiService: CountiesApiService) {
+  }
 }
