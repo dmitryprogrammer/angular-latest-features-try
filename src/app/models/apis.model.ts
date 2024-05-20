@@ -1,7 +1,6 @@
 export interface IApisMain {
-  error?: boolean;
-  msg?: string;
-  data: IApiCountry[];
+  count: number;
+  entries: IApisEntry[];
 }
 
 export interface IApisEntry {
@@ -12,11 +11,4 @@ export interface IApisEntry {
   Cors: 'yes' | 'no';
   Link: string;
   Category: string;
-}
-
-export interface IApiCountry {
-  cities: string[];
-  country: string;
-  iso2: string;
-  iso3: string;
 }
