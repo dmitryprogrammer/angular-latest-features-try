@@ -22,4 +22,17 @@ describe('ListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should init counter', () => {
+    expect(component.counter()).toEqual(0);
+  });
+
+  it('should update counter', () => {
+    let i = 0;
+    while(i < 10) {
+      i++;
+      component.counterIncrement();
+      expect(component.counter()).toEqual(i);
+    }
+  });
 });
