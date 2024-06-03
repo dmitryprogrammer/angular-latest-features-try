@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>{{title()}}</h1>
-  <button (click)="counterIncrement()">{{counter()}}</button>
+  <h1>{{ title() }}</h1>
+  <button (click)="counterIncrement()">{{ counter() }}</button>
   <ul>
     @for (apiItem of countries(); track apiItem.iso2) {
       <li>{{ apiItem.country }}</li>
