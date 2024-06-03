@@ -21,17 +21,10 @@
     "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
     "strictNullChecks": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "lib": ["ES2022", "dom"],
     "paths": {
-      "@models/*": [
-        "src/app/models/*"
-      ],
-      "@services/*": [
-        "src/app/services/*"
-      ]
+      "@models/*": ["src/app/models/*"],
+      "@services/*": ["src/app/services/*"]
     }
   },
   "angularCompilerOptions": {
