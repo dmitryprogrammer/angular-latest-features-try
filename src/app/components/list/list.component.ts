@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {Observable} from 'rxjs';
 
 import {  SharedModule } from '../../../shared/shared.module';
-import {CountiesApiService} from '@services/counties-api.service';
+import { CountiesApiService  } from '@services/counties-api.service';
 import {ICountry} from '@models/countries.model';
 
 @Component({
