@@ -10,8 +10,7 @@ import {IApisMain} from '@models/apis.model';
 export class ApisMainService {
   private readonly BASE_URL: string = 'https://api.publicapis.org/';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   public getApiEntries(): Observable<IApisMain> {
     return this.http.get<IApisMain>(`${this.BASE_URL}/entries`);

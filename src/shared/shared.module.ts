@@ -10,7 +10,6 @@ const MATERIAL_MODULES = [MatSortModule, CdkTableModule, MatTableModule, MatNati
 @NgModule({
   exports: [...MATERIAL_MODULES],
   imports: [...MATERIAL_MODULES],
-  providers: [provideHttpClient(withInterceptorsFromDi())]
+  providers: [provideHttpClient(withInterceptorsFromDi())],
 })
-export class SharedModule {
-}
+export class SharedModule {}
