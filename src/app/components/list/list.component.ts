@@ -1,29 +1,20 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DestroyRef,
-  effect,
-  inject,
-  signal,
-  Signal,
-  WritableSignal
-} from "@angular/core";
-import {takeUntilDestroyed, toSignal} from "@angular/core/rxjs-interop";
-import {CommonModule} from "@angular/common";
-import {Observable} from "rxjs";
+import {ChangeDetectionStrategy, Component, DestroyRef, effect, inject, signal, Signal, WritableSignal} from '@angular/core';
+import {takeUntilDestroyed, toSignal} from '@angular/core/rxjs-interop';
+import {CommonModule} from '@angular/common';
+import {Observable} from 'rxjs';
 
-import {SharedModule} from "../../../shared/shared.module";
-import {CountiesApiService} from "@services/counties-api.service";
-import {ICountry} from "@models/countries.model";
+import {SharedModule} from '../../../shared/shared.module';
+import {CountiesApiService} from '@services/counties-api.service';
+import {ICountry} from '@models/countries.model';
 
 @Component({
-  selector: "app-list",
-  templateUrl: "./list.component.html",
-  styleUrls: ["./list.component.scss"],
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss'],
   standalone: true,
   imports: [CommonModule, SharedModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [CountiesApiService]
+  providers: [CountiesApiService],
 })
 export class ListComponent {
   private destroyRef = inject(DestroyRef);
@@ -33,7 +24,7 @@ export class ListComponent {
   public countries: Signal<ICountry[]> = toSignal(this.countries$);
 
   public counter: WritableSignal<number> = signal(0);
-  public title: Signal<string> = signal("Hello There");
+  public title: Signal<string> = signal('Hello There');
 
   constructor(private countiesApiService: CountiesApiService) {
     effect(() => {
