@@ -1,10 +1,10 @@
-import {ChangeDetectionStrategy, Component, computed, DestroyRef, effect, inject, signal, Signal, WritableSignal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, DestroyRef, effect, inject, signal, Signal, WritableSignal} from '@angular/core';
 import {takeUntilDestroyed, toSignal} from '@angular/core/rxjs-interop';
 import {CommonModule} from '@angular/common';
 import {Observable} from 'rxjs';
 
-import {  SharedModule } from '../../../shared/shared.module';
-import { CountiesApiService  } from '@services/counties-api.service';
+import {SharedModule} from '../../../shared/shared.module';
+import {CountiesApiService} from '@services/counties-api.service';
 import {ICountry} from '@models/countries.model';
 
 @Component({
