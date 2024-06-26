@@ -1,4 +1,13 @@
-import {ChangeDetectionStrategy, Component, DestroyRef, effect, inject, signal, Signal, WritableSignal} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  effect,
+  inject,
+  signal,
+  Signal,
+  WritableSignal
+} from '@angular/core';
 import {takeUntilDestroyed, toSignal} from '@angular/core/rxjs-interop';
 import {CommonModule} from '@angular/common';
 import {Observable} from 'rxjs';
@@ -14,7 +23,7 @@ import {ICountry} from '@models/countries.model';
   standalone: true,
   imports: [CommonModule, SharedModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [CountiesApiService],
+  providers: [CountiesApiService]
 })
 export class ListComponent {
   private destroyRef = inject(DestroyRef);
