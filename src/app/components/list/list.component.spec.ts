@@ -2,10 +2,10 @@ import {CommonModule} from '@angular/common';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {provideHttpClientTesting} from '@angular/common/http/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 import {ListComponent} from './list.component';
 import {SharedModule} from '../../../shared/shared.module';
-import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 describe('ListComponent', () => {
   let component: ListComponent;
