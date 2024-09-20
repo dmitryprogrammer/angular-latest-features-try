@@ -6,13 +6,14 @@ import {Observable} from 'rxjs';
 import {SharedModule} from '../../../shared/shared.module';
 import {CountiesApiService} from '@services/counties-api.service';
 import {ICountry} from '@models/countries.model';
+import {RealtimeInputComponent} from '../realtime-input/realtime-input.component';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   standalone: true,
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, RealtimeInputComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [CountiesApiService],
 })
