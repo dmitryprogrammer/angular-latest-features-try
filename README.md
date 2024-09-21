@@ -10,3 +10,4 @@ The to do list for this Repository.
 - [ ] Make simple CI/CD for Merge Requests.
 - [ ] Cover all code by tests.
 - [ ] Deploy it on some host.
+- [ ] Signals faster exchange, write every possible case
