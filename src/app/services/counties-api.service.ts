@@ -15,7 +15,7 @@ export class CountiesApiService {
   public getCountries(): Observable<ICountry[]> {
     return this.http.get<Countries>(`${this.BASE_URL}countries`).pipe(
       filter((countriesData: Countries) => Boolean(countriesData)),
-      map((countriesData: Countries): ICountry[] => countriesData.data),
+      map(({data}: Countries): ICountry[] => data),
     );
   }
 }
