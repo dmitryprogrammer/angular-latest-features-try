@@ -33,6 +33,6 @@ export class ListComponent {
   }
 
   public counterIncrement(): void {
-    this.counter.update((counter) => counter + 1);
+    this.counter.update((counter) => counter++);
   }
 }
